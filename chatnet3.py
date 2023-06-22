@@ -8,8 +8,27 @@ from langchain.chat_models import ChatOpenAI
 from langchain.schema import AgentAction, AgentFinish
 from langchain.prompts import StringPromptTemplate
 from langchain import LLMChain
+import sys
+from github import Github
 
-os.environ["OPENAI_API_KEY"] = 
+# Check if the OpenAI API key is set
+if "OPENAI_API_KEY" not in os.environ:
+    print("Please set the OPENAI_API_KEY environment variable.")
+    sys.exit(1)
+
+# Check if the GitHub token is set
+if "GITHUB_TOKEN" not in os.environ:
+    print("Please set the GITHUB_TOKEN environment variable.")
+    sys.exit(1)
+
+# Retrieve the OpenAI API key and GitHub token from environment variables
+openai_api_key = os.environ["OPENAI_API_KEY"]
+github_token = os.environ["GITHUB_TOKEN"]
+
+# Set up the GitHub API
+g = Github(github_token)
+repo = g.get_repo("scooter7/chatchain")
+
 
 template = """Answer the following questions as best you can, but speaking as a college admissions counselor. You have access to the following tools:
 
