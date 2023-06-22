@@ -9,7 +9,7 @@ from langchain.schema import AgentAction, AgentFinish
 from langchain.prompts import StringPromptTemplate
 from langchain import LLMChain
 
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = 
 
 template = """Answer the following questions as best you can, but speaking as a college admissions counselor. You have access to the following tools:
 
