@@ -12,7 +12,7 @@ import langchain
 import os
 import chainlit as cl
 
-OPENAI_API_KEY = os.environ['OPENAI_API_KEY']
+my_secret = os.environ['OPENAI_API_KEY']
 
 template = """Answer the following questions as best you can, but speaking as a college admissions counselor. You have access to the following tools:
 
